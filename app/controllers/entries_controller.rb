@@ -10,6 +10,9 @@ class EntriesController < ApplicationController
     @entry["place_id"] = params["place_id"]
     @entry["user_id"] = session[:user_id]
     @entry.save
+    if params["uploaded_image"].present?
+      @entry.uploaded_image.attach(params["uploaded_image"])
+    end
     redirect_to "/places/#{@entry["place_id"]}"
   end
 end

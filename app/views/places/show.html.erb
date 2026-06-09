@@ -4,6 +4,9 @@
   <% for entry in @entries %>
     <div class="col-lg-4 col-12 mb-3">
       <div class="card">
+        <% if entry.uploaded_image.attached? %>
+          <img src="<%= url_for(entry.uploaded_image) %>" class="card-img-top">
+        <% end %>
         <div class="card-body">
           <h3 class="card-title"><%= entry["title"] %></h3>
           <h6 class="text-muted"><%= entry["occurred_on"] %></h6>
