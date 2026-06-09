@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_action :require_login
+
   def index
     @places = Place.all
   end
